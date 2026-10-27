@@ -32,7 +32,9 @@ enum SINAIS {
     AND,
     OR,
     NOT,
-    COMENTARIO
+    COMENTARIO,
+    ABRE_ASPA,
+    FECHA_ASPA
 };
 
 enum PALAVRAS_RESERVADAS{
