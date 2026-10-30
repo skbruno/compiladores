@@ -20,7 +20,7 @@ enum SINAIS {
     IGUAL,
     ADICAO,
     SUBTRACAO,
-    MULTIPLICACAO
+    MULTIPLICACAO,
     DIVISAO,
     MENOR,
     MENOR_IGUAL,
@@ -32,9 +32,7 @@ enum SINAIS {
     AND,
     OR,
     NOT,
-    COMENTARIO,
-    ABRE_ASPA,
-    FECHA_ASPA
+    DIFERENTE
 };
 
 enum PALAVRAS_RESERVADAS{
@@ -52,25 +50,26 @@ enum PALAVRAS_RESERVADAS{
     PR_ENDFUNCAO,
     PR_PROC,
     PR_ENDPROC,
-    PR_IF
+    PR_IF,
     PR_ELSE,
     PR_ENDIF,
     PR_WHILE,
     PR_ENDWHILE,
     PR_RETURN,
-}
+};
 
 typedef struct {
     enum TOKEN_CAT cat;
     union {
         int codigo;
-        char lexema{TAM_MAX_LEXEMA}
+        char lexema[TAM_MAX_LEXEMA];
         int valInt;
         float valReal;
         char valChar;
-        char literal{TAM_MAX_LITERAL}
+        char literal[TAM_MAX_LITERAL];
     };
 } TOKEN;
 
+int contLinha = 1;
 
-#endif 
+#endif
