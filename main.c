@@ -13,6 +13,7 @@ void Analisador_PL(FILE *fd)
     printf("\n[== Analisador PL ==]\n");
         tk = Analex(fd);
 
+    printf("<FIM_ARQ>\n");
 }
 
 
