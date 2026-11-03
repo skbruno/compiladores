@@ -1,17 +1,22 @@
-#include <stdio.h> 
-#include <stdlib.h> 
-#include <ctype.h> 
-#include <string.h> 
-#include <stdbool.h> 
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
 #include "Analex.h"
 
 #define TAM_LEXEMA 31
 #define TAM_LITERAL 200
 
+int contLinha = 1;
 
-void error(char msg[]) { 
-    printf("%s\n", msg); 
-    exit(1); 
+void errorLex(int contLinha, char caracter)
+{
+    char c_str[2];
+    c_str[0] = caracter;
+    c_str[1] = '\0';
+    printf("\nCaracter '%s' invalido na linha: %d\n", c_str, contLinha);
+    exit(1);
 }
 
 TOKEN AnaLex(FILE *fd) { 

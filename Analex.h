@@ -8,10 +8,10 @@ enum TOKEN_CAT {
     ID = 1, /*Identificador*/
     PR, /*Palavra reservada*/
     SN, /*Sinais*/
+    LT, /*literal*/
     CT_I, /*Constante inteira*/
     CT_R, /*Constante real*/
     CT_C, /*Caracter*/
-    LT, /*literal*/
     FIM_ARQ /*fim*/
 };
 
@@ -63,6 +63,7 @@ typedef struct {
     union {
         int codigo;
         char lexema[TAM_MAX_LEXEMA];
+        int indice;
         int valInt;
         float valReal;
         char valChar;
