@@ -1,6 +1,6 @@
 #ifndef ANALEX_H
 #define ANALEX_H
-
+#include <stdio.h>
 #define TAM_MAX_LEXEMA 31
 #define TAM_MAX_LITERAL 200
 
@@ -41,36 +41,48 @@ enum PALAVRAS_RESERVADAS{
     PR_ENDVAR,
     PR_PROG,
     PR_ENDPROG,
+
     PR_CHAR,
     PR_INT,
     PR_REAL,
     PR_BOOL,
-    PR_PARAM,
-    PR_FUNCAO,
-    PR_ENDFUNCAO,
+
+    PR_FWD,
     PR_PROC,
     PR_ENDPROC,
+    PR_ENDFUNC,
+    PR_NOPARAM,
+
     PR_IF,
     PR_ELSE,
     PR_ENDIF,
     PR_WHILE,
     PR_ENDWHILE,
     PR_RETURN,
+    PR_CALL,
+    PR_KEYBOARD,
+    PR_DISPLAY,
+    PR_DUP
 };
 
 typedef struct {
     enum TOKEN_CAT cat;
     union {
         int codigo;
-        char lexema[TAM_MAX_LEXEMA];
+        char lexema[TAM_MAX_LEXEMA]; 
         int indice;
-        int valInt;
+        int valInt; 
         float valReal;
-        char valChar;
+        char caracter;
         char literal[TAM_MAX_LITERAL];
     };
 } TOKEN;
 
-int contLinha = 1;
+extern TOKEN tk;
+extern FILE *fd;
+extern int contLinha;
+TOKEN Analex(FILE *);
 
 #endif
+
+

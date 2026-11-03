@@ -19,7 +19,7 @@ void errorLex(int contLinha, char caracter)
     exit(1);
 }
 
-TOKEN AnaLex(FILE *fd) { 
+TOKEN Analex(FILE *fd) { 
     int estado = 0;
     char c;
     char lexema[TAM_LEXEMA] = "";
