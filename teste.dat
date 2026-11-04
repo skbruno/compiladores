@@ -1,0 +1,36 @@
+PROG teste
+VAR
+    INT contador, total2
+    REAL media
+    CHAR letra
+    BOOL achou
+ENDVAR
+
+PROC calcula NOPARAM
+    RETURN total2
+ENDPROC
+
+contador = 10
+media = 3.14
+letra = 'a'
+achou = contador >= 5 .and. media < 10.5
+
+IF contador == 10 .or. .not. achou
+    total2 = (contador + 2) * 3 - 8 / 4
+ELSE
+    total2 = 0
+ENDIF
+
+// comentario
+
+WHILE contador > 0  // comentario no fim da linha
+    contador = contador - 1
+    IF contador <= 2 .and. total2 # 0
+        DISPLAY "fim fim fim"
+    ENDIF
+ENDWHILE
+
+CALL calcula
+KEYBOARD media
+PL FWD ENDFUNC DUP
+ENDPROG

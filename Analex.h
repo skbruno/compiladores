@@ -4,18 +4,20 @@
 #define TAM_MAX_LEXEMA 31
 #define TAM_MAX_LITERAL 200
 
-enum TOKEN_CAT {
+enum TOKEN_CAT
+{
     ID = 1, /*Identificador*/
-    PR, /*Palavra reservada*/
-    SN, /*Sinais*/
-    LT, /*literal*/
-    CT_I, /*Constante inteira*/
-    CT_R, /*Constante real*/
-    CT_C, /*Caracter*/
+    PR,     /*Palavra reservada*/
+    SN,     /*Sinais*/
+    LT,     /*literal*/
+    CT_I,   /*Constante inteira*/
+    CT_R,   /*Constante real*/
+    CT_C,   /*Caracter*/
     FIM_ARQ /*fim*/
 };
 
-enum SINAIS {
+enum SINAIS
+{
     ATRIB = 1,
     IGUAL,
     ADICAO,
@@ -35,7 +37,8 @@ enum SINAIS {
     DIFERENTE
 };
 
-enum PALAVRAS_RESERVADAS{
+enum PALAVRAS_RESERVADAS
+{
     PR_PL = 1,
     PR_VAR,
     PR_ENDVAR,
@@ -65,13 +68,46 @@ enum PALAVRAS_RESERVADAS{
     PR_DUP
 };
 
-typedef struct {
+static char *palavrasReservadas[] = {
+    "PL",
+    "VAR",
+    "ENDVAR",
+    "PROG",
+    "ENDPROG",
+
+    "CHAR",
+    "INT",
+    "REAL",
+    "BOOL",
+
+    "FWD",
+    "PROC",
+    "ENDPROC",
+    "ENDFUNC",
+    "NOPARAM",
+
+    "IF",
+    "ELSE",
+    "ENDIF",
+    "WHILE",
+    "ENDWHILE",
+    "RETURN",
+    "CALL",
+    "KEYBOARD",
+    "DISPLAY",
+    "DUP"};
+
+#define QTD_PR 24
+
+typedef struct
+{
     enum TOKEN_CAT cat;
-    union {
+    union
+    {
         int codigo;
-        char lexema[TAM_MAX_LEXEMA]; 
+        char lexema[TAM_MAX_LEXEMA];
         int indice;
-        int valInt; 
+        int valInt;
         float valReal;
         char caracter;
         char literal[TAM_MAX_LITERAL];
@@ -84,5 +120,3 @@ extern int contLinha;
 TOKEN Analex(FILE *);
 
 #endif
-
-
